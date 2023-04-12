@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+
+    <!--    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div th:replace="layouts/commonHeader :: header"> Header </div>
+
+
+<section th:fragment="content">
+
+    <p> replace this with a page that has layout:fragment="content" </p>
+
+</section>
+
+<div th:replace="layouts/commonFooter :: footer">  Footer </div>
+
+</body>
+</html>

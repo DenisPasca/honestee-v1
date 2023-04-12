@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org" >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Tooplate's Little Fashion - Products</title>
+
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+         CSS FILES
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/bootstrap-icons.css" rel="stylesheet">
+
+        <link  href="/ss/slick.css"  rel="stylesheet"/>
+
+        <link href="/css/tooplate-little-fashion.css" rel="stylesheet">
+
+
+    </head>
+    
+    <body>
+
+    <div th:replace="layouts/commonHeader :: header"></div>
+
+<div layout:fragment="content">
+
+    <div class="container my-5">
+
+    <div class="row">
+
+        <div class="container my-5">
+
+            <a th:href="@{/admin/addProduct}" class="btn btn-primary"> Add new product </a>
+
+
+        </div>
+
+
+    <table class="table table-dark table-striped">
+        <thead>
+        <tr>
+            <th scope="col" >Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Color</th>
+            <th scope="col">Price</th>
+            <th> Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+
+            <td th:text="${product.id}">Mark</td>
+            <td th:text="${product.name}">Otto</td>
+            <td th:text="${product.color}">@mdo</td>
+            <td th:text="${product.price}">@mdo</td>
+            <td>
+                <a th:href="@{/admin/editProduct/{id}(id=${product.id})}" class="btn btn-primary"> Edit </a>
+                <a th:href="@{/admin/deleteProduct/{id}(id=${product.id})}" class="btn btn-danger"> Delete </a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    </div>
+
+    </div>
+
+</div>
+
+    <div th:replace="layouts/commonFooter :: footer"></div>
+
+    <br>
+    </body>
+</html>

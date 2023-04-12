@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.com">
+    <head>
+    <meta charset="UTF-8">
+    <title>Cumpara</title>
+    </head>>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">-->
+
+<link href="/css/tooplate-little-fashion.css" rel="stylesheet">
+<link href="/css/bootstrap-icons.css" rel="stylesheet">
+
+
+    <body>
+
+    
+        <main>
+
+
+
+            <div th:replace="layouts/commonHeader :: header">
+
+
+            </div>
+
+<!--            <header class="site-header section-padding d-flex justify-content-center align-items-center">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+
+<!--                        <div class="col-lg-10 col-12">-->
+<!--                            <h1>-->
+<!--                                <span class="d-block text-primary">Tricouri</span>-->
+<!--                                <span class="d-block text-dark">cu mesaj</span>-->
+<!--                            </h1>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </header>-->
+
+            <section class="product-detail section-padding">
+                <div class="container" th:object="${product}">
+                    <form method="post" th:action="@{/add-to-cart}">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <div class="product-thumb">
+                                <img th:src="@{/images/} + *{imageSrc}" src="images/product/quokkabottles-kFc1_G1GvKA-unsplash.jpeg" class="img-fluid product-image" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="product-info d-flex">
+                                <div>
+                                    <h2 class="product-title mb-0" th:text="*{name}">Tricou manele</h2>
+
+                                    <p class="product-p" th:text="*{color}">Pentru un GIGACHAD adevarat</p>
+                                </div>
+
+                                <small class="product-price text-muted ms-auto mt-auto mb-5" th:text="*{price}">$50</small>
+                            </div>
+
+                            <div class="product-description">
+
+                                <strong class="d-block mt-4 mb-2">Description</strong>
+
+                                <p class="lead mb-5">Exista 2 tipuri de oameni in lumea asta, cei care recunosc ca asculta manele si cei care mint</p>
+                            </div>
+
+                            <div class="product-cart-thumb row">
+                                <div class="col-lg-6 col-12">
+                                    
+                                    <select class="form-select cart-form-select" id="inputGroupSelect01">
+                                        <option selected>Cantitate</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+                                    <button type="submit" th:href="@{/cart}" class="btn btn-center btn-primary ">Add to cart
+
+                                        <input type="hidden" name="id" th:value="${id}">
+
+
+                                    </button>
+                                </div>
+
+                                <p>
+                                    <a href="#" class="product-additional-link">Details</a>
+
+                                    <a href="#" class="product-additional-link">Delivery and Payment</a>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="related-product section-padding border-top">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <h3 class="mb-5">You might also like</h3>
+                        </div>
+
+                        <div class="col-lg-4 col-12 mb-3">
+                            <div class="product-thumb">
+                                <a href="product-detail.html">
+                                    <img src="/images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg" class="img-fluid product-image" alt="">
+                                </a>
+
+                                <div class="product-top d-flex">
+                                    <span class="product-alert me-auto">New arrival</span>
+
+                                    <a href="#" class="bi-heart-fill product-icon"></a>
+                                </div>
+
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="product-detail.html" class="product-title-link">Tree pot</a>
+                                        </h5>
+
+                                        <p class="product-p">Original package design from house</p>
+                                    </div>
+
+                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$25</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-12 mb-3">
+                            <div class="product-thumb">
+                                <a href="product-detail.html">
+                                    <img src="/images/product/jordan-nix-CkCUvwMXAac-unsplash.jpeg" class="img-fluid product-image" alt="">
+                                </a>
+
+                                <div class="product-top d-flex">
+                                    <span class="product-alert">Low Price</span>
+
+                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                                </div>
+
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="product-detail.html" class="product-title-link">Fashion set</a>
+                                        </h5>
+
+                                        <p class="product-p">Costume package</p>
+                                    </div>
+
+                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$35</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <div class="product-thumb">
+                                <a href="product-detail.html">
+                                    <img src="images/product/nature-zen-3Dn1BZZv3m8-unsplash.jpeg" class="img-fluid product-image" alt="">
+                                </a>
+
+                                <div class="product-top d-flex">
+                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                                </div>
+
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="product-detail.html" class="product-title-link">Juice Drinks</a>
+                                        </h5>
+
+                                        <p class="product-p">Nature made another world</p>
+                                    </div>
+
+                                    <small class="product-price text-muted ms-auto mt-auto mb-5">$45</small>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+
+
+        <!-- CART MODAL -->
+<!--        <div class="modal fade" id="cart-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--            <div class="modal-dialog modal-dialog-centered modal-lg">-->
+<!--                <div class="modal-content border-0">-->
+<!--                    <div class="modal-header flex-column">-->
+<!--                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                    </div>-->
+
+<!--                    <div class="modal-body">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-lg-6 col-12 mt-4 mt-lg-0">-->
+<!--                                <img src="images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg" class="img-fluid product-image" alt="">-->
+<!--                            </div>-->
+
+<!--                            <div class="col-lg-6 col-12 mt-3 mt-lg-0">-->
+<!--                                <h3 class="modal-title" id="exampleModalLabel">Tree pot</h3>-->
+
+<!--                                <p class="product-price text-muted mt-3">$25</p>-->
+
+<!--                                <p class="product-p">Quatity: <span class="ms-1">4</span></p>-->
+
+<!--                                <p class="product-p">Colour: <span class="ms-1">Black</span></p>-->
+
+<!--                                <p class="product-p pb-3">Size: <span class="ms-1">S/S</span></p>-->
+
+<!--                                <div class="border-top mt-4 pt-3">-->
+<!--                                    <p class="product-p"><strong>Total: <span class="ms-1">$100</span></strong></p>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="modal-footer">-->
+<!--                        <div class="row w-50">-->
+<!--                            <button type="button" class="btn custom-btn cart-btn ms-lg-4">Checkout</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+
+        <div th:replace="layouts/commonFooter :: footer">
+
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+    </body>
+    </html>

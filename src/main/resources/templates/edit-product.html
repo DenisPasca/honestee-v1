@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"  >
+<head>
+    <meta charset="UTF-8">
+    <title>Edit product</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <link href="/css/tooplate-little-fashion.css" rel="stylesheet">
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+
+
+
+
+<form method="post"  th:action="@{/admin/{id}(id=${product.id})}" th:object="${product}">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Product name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter product" th:field="*{name}">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Product color</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Color" th:field="*{color}">
+    </div>
+
+    <div class="form-group">
+        <label for="price">Product price</label>
+        <input type="text" class="form-control" id="price" placeholder="Price" th:field="*{price}">
+    </div>
+
+    <div class="form-group">
+        <label for="image">Product image</label>
+        <input type="text" class="form-control" id="image" placeholder="imgName" th:field="*{imageSrc}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+
+</body>
+</html>
